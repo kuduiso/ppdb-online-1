@@ -105,11 +105,15 @@ class Ppdb_Online_Public {
 		$body = '';
 		foreach($users as $user_id){
 	        $metas = get_user_meta ( $user_id->ID);
-			// print_r($metas); die();
+	        $user_info = get_userdata($user_id->ID);
+			//print_r($metas); die();
 	        $body.='
 	        	<tr>
 	        		<td>'.$metas['nickname'][0].'</td>
-	        		<td>magetan</td>
+	        		<td>'.$metas['alamat'][0].'</td>
+	        		<td>'.$metas['asal_sekolah'][0].'</td>
+	        		<td>'.$user_info->user_email.'</td>
+	        		<td>'.$metas['nomor_hp'][0].'</td>
 	        	</tr>
 	        ';
 	    }
@@ -119,6 +123,9 @@ class Ppdb_Online_Public {
 				<tr>
 					<th>Nama</th>
 					<th>Alamat</th>
+					<th>Asal Sekolah</th>
+					<th>E-mail</th>
+					<th>Nomor HP</th>
 				</tr>
 			</thead>
 			<tbody>
